@@ -30,5 +30,7 @@ ros_mqtt_bridge
 キーボードで操作: キーボードを使用してロボットを操作するためのノードを起動。
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=rover_twist
 
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/robot/cmd_vel
+
 TFツリーのグラフィカルなPDFファイルを生成し、各変換のブロードキャスト統計情報（頻度、最新のタイムスタンプなど）を提供
 ros2 run tf2_tools view_frames
