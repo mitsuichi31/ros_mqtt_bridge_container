@@ -1,4 +1,4 @@
-USER_NAME=mitz
+USER_NAME=user
 WORKSPACE=devel
 
 xhost local:
@@ -8,9 +8,6 @@ docker run --rm -it --privileged \
         -v /home/$USER_NAME/$WORKSPACE:/$USER_NAME/$WORKSPACE \
         -v /home/$USER_NAME/docker:/$USER_NAME/docker \
         -e DISPLAY=$DISPLAY \
-        -e SIM=true \
-        -e MOVEIT=true \
-        -e NAVI=true \
         --network host \
         --name ubuntu2404docker \
         ubuntu2404docker:mqtt-bridge
