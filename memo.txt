@@ -16,3 +16,14 @@ python3 -m venv my_mqtt_env
 source my_mqtt_env/bin/activate
 ... deactivate
 
+
+user@user-EPIC-TGH7:~/docker/ros_mqtt_bridge_container$ cd python/
+user@user-EPIC-TGH7:~/docker/ros_mqtt_bridge_container/python$ vcs import --input ../
+.git/   python/ 
+user@user-EPIC-TGH7:~/docker/ros_mqtt_bridge_container/python$ vcs import --input ../packages.repos --workers 1
+=== ./ros_mqtt_bridge (git) ===
+Cloning into '.'...
+user@user-EPIC-TGH7:~/docker/ros_mqtt_bridge_container/python$ ls
+ros_mqtt_bridge
+
+

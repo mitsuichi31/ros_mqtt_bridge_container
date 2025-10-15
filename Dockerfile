@@ -30,8 +30,8 @@ RUN apt install -y python3-paho-mqtt ros-${ROS_DISTRO}-tf-transformations
 RUN apt install -y mosquitto mosquitto-clients iputils-ping
 
 # Add user account
-ENV USER_NAME=mitz
-ENV PASSWORD=hira95
+ENV USER_NAME=user
+ENV PASSWORD=user123
 
 RUN useradd -m -d /home/${USER_NAME} ${USER_NAME} \
         -p $(perl -e 'print crypt("${USER_NAME}", "${PASSWORD}"),"\n"') && \
@@ -58,6 +58,6 @@ RUN echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
 SHELL ["/bin/bash", "-c"]
 
 # 作業ディレクトリの設定
-WORKDIR /mitz/docker/ros_mqtt_bridge_container
+WORKDIR /user/docker/ros_mqtt_bridge_container
 # Command to run when the container starts
 CMD ["bash"]
