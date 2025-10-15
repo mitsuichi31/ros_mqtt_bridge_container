@@ -58,6 +58,26 @@ RUN echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
 SHELL ["/bin/bash", "-c"]
 
 # 作業ディレクトリの設定
-WORKDIR /user/docker/ros_mqtt_bridge_container
+WORKDIR /user/docker/ros_mqtt_bridge_container/python/ros_mqtt_bridge
 # Command to run when the container starts
-CMD ["bash"]
+# CMD ["bash"]
+
+# ----------------------------------------------------
+# 絶対パスで entrypoint.sh を作成
+RUN echo "#!/bin/bash" > /home/${USER_NAME}/entrypoint.sh
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/${USER_NAME}/entrypoint.sh
+# RUN echo "source /home/${USER_NAME}/ros2_ws/install/setup.bash" >> /home/${USER_NAME}/entrypoint.sh
+RUN echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> /home/${USER_NAME}/entrypoint.sh
+RUN echo 'exec "$@"' >> /home/${USER_NAME}/entrypoint.sh
+
+# 実行権限と所有権の変更
+RUN chmod +x /home/${USER_NAME}/entrypoint.sh
+RUN chown ${USER_NAME}:${USER_NAME} /home/${USER_NAME}/entrypoint.sh
+
+# ----------------------------------------------------
+# ENTRYPOINT と CMD の設定
+# ENTRYPOINT で実行ファイルを固定
+ENTRYPOINT ["/home/user/entrypoint.sh"]
+
+# CMD ["bash"]
+CMD ["python3", "bridge-dated-log-refactored-tf.py"]
