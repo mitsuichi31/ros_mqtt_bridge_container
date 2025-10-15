@@ -1,0 +1,6 @@
+# packages.repos
+repositories:
+  ros_mqtt_bridge:
+    type: git
+    url: https://github.com/mitsuichi31/ros_mqtt_bridge_4arro.git
+    version: main  # または使用したいブランチ名 (例: ros2, humble, main など)

@@ -1,0 +1,18 @@
+スクリプトの実行方法
+
+ターミナル1: ブリッジスクリプト（mcu_navstack_bridge.py）を実行します。
+ros2 run your_package_name mcu_navstack_bridge.py
+
+ターミナル2: テスト用のMQTTブローカースクリプト（mqtt_test_broker.py）を実行します。
+python3 mqtt_test_broker.py
+これにより、MCUからのデータをシミュレートしてMQTTブローカーに公開します。
+
+ターミナル3: このROSテストスクリプト（ros_test_node.py）を実行します。
+ros2 run your_package_name ros_test_node.py
+
+
+
+python3 -m venv my_mqtt_env
+source my_mqtt_env/bin/activate
+... deactivate
+
