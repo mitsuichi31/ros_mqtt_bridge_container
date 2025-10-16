@@ -9,5 +9,5 @@ docker run --rm -it --privileged \
         -v /home/$USER_NAME/docker:/$USER_NAME/docker \
         -e DISPLAY=$DISPLAY \
         --network host \
-        --name ubuntu2404docker \
-        ubuntu2404docker:mqtt-bridge
+        --name ubuntu2204docker-mqtt-bridge \
+        ubuntu2204docker:mqtt-bridge
