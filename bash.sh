@@ -1,1 +1,1 @@
-docker exec -it ubuntu2204docker-mqtt-bridge /bin/bash
+docker exec -it ubuntu2404docker-mqtt-bridge /bin/bash

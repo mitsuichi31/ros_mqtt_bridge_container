@@ -1,5 +1,5 @@
 # Use Ubuntu 24.04 as the base image
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Set environment variables for non-interactive installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -21,7 +21,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/r
     | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
 # Install ROS 2 Jazzy Desktop
-ENV ROS_DISTRO=humble
+ENV ROS_DISTRO=jazzy
 RUN apt update && apt install -y ros-${ROS_DISTRO}-desktop
 
 # Install sudo package
